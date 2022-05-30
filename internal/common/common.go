@@ -23,7 +23,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/satori/go.uuid"
+	"github.com/google/uuid"
 )
 
 const (
@@ -50,12 +50,12 @@ var Roles = []Role{
 }
 
 func UID() string {
-	u := uuid.NewV4()
+	u := uuid.Must(uuid.NewRandom())
 	return fmt.Sprintf("%x", u[:4])
 }
 
 func UUID() string {
-	return uuid.NewV4().String()
+	return uuid.Must(uuid.NewRandom()).String()
 }
 
 const (
